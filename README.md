@@ -1,72 +1,50 @@
-# Data Validation Library
+# GraphQL Client
 
-This is a simple data validation library for JavaScript, allowing you to validate various types of data such as email addresses, phone numbers, URLs, and custom patterns.
+A lightweight JavaScript package for making GraphQL queries to a specified endpoint URL.
 
 ## Installation
 
-You can install this library via npm:
-
 ```bash
-npm install your-package-name
+npm install graphql-client
 ```
 
 ## Usage
 
-First, import the `validate` function from the package:
-
 ```javascript
-const validate = require('your-package-name');
-```
+const GraphQLClient = require('graphql-client');
 
-Then, use the `validate` function to validate data:
+const client = new GraphQLClient('https://example.com/graphql');
 
-```javascript
-// Example usage
-const isValidEmail = validate('example@email.com', 'email');
-console.log(isValidEmail); // Output: true
+const query = `
+  query {
+    posts {
+      title
+      body
+    }
+  }
+`;
 
-const isValidPhoneNumber = validate('+1234567890', 'phoneNumber');
-console.log(isValidPhoneNumber); // Output: true
-
-const isValidURL = validate('https://www.example.com', 'url');
-console.log(isValidURL); // Output: true
-
-const isValidCustom = validate('custom_value', 'custom', '^custom');
-console.log(isValidCustom); // Output: true
+client.query(query)
+  .then(data => console.log('Data:', data))
+  .catch(error => console.error('Error:', error));
 ```
 
 ## API
 
-### `validate(value, type, customRegex)`
+### `new GraphQLClient(url)`
 
-- `value`: The value to be validated.
-- `type`: The type of validation to perform. Supported types are: `'email'`, `'phoneNumber'`, `'url'`, and `'custom'`.
-- `customRegex` (optional): A custom regular expression string for custom validation.
+Creates a new GraphQL client instance with the specified GraphQL endpoint URL.
 
-Returns `true` if the value passes validation, and `false` otherwise.
+- `url` (string): The URL of the GraphQL endpoint.
 
-## Supported Validation Types
+### `query(query, variables)`
 
-- **Email**: Validates email addresses.
-- **Phone Number**: Validates phone numbers (supports international format).
-- **URL**: Validates URLs.
-- **Custom**: Validates data against a custom regular expression.
+Executes a GraphQL query with optional variables.
 
-## Examples
+- `query` (string): The GraphQL query string.
+- `variables` (object, optional): The variables used in the query.
 
-```javascript
-const isValidEmail = validate('example@email.com', 'email');
-console.log(isValidEmail); // Output: true
-
-const isValidPhoneNumber = validate('+1234567890', 'phoneNumber');
-console.log(isValidPhoneNumber); // Output: true
-
-const isValidURL = validate('https://www.example.com', 'url');
-console.log(isValidURL); // Output: true
-
-const isValidCustom = validate('custom_value', 'custom', '^custom');
-console.log(isValidCustom); // Output: true
-```
+Returns a Promise that resolves with the query result.
 
 ## License
 

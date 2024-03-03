@@ -4,11 +4,11 @@
   "description": "by billymoor",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo "Error: no test specified" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/billymoor/shopopalo.git"
+    "url": "https://github.com/billymoor/billymoorgraphql.git"
   },
   "keywords": [
     "",

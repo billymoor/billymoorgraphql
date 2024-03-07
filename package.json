@@ -1,6 +1,6 @@
 {
   "name": "billymoorgraphql",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "by billymoor",
   "main": "./src/index.js",
   "scripts": {

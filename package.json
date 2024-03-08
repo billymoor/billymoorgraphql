@@ -1,6 +1,6 @@
 {
   "name": "billymoorgraphql",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "by billymoor",
   "main": "./src/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/billymoor/shopopalo.git"
+    "url": "https://github.com/billymoor/billymoor-graph-ql"
   },
   "keywords": [
     "",
